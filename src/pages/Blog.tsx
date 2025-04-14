@@ -1,4 +1,3 @@
-import React from 'react';
 import { getDateInReqFormat } from '../utils/utils';
 import Avatar from '../components/Avatar';
 import useBlog from '../hooks/Blog';

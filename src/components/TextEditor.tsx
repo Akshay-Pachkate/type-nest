@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Bold, Italic, List, AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
 import LabeledInput from './LabeledInput';
 import axiosInstance from '../utils/axiosInstance';
