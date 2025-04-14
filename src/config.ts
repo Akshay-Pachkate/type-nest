@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://medium-blogs.akshay-hello-world.workers.dev/api/v1/'
