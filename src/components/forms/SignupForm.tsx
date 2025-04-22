@@ -47,7 +47,7 @@ const SignupForm = () => {
 
     
   return (<>
-    <FormHeader header="Create an account" subHeader="Already have an account?" link="/login" />
+    <FormHeader header="Create an account" subHeader="Already have an account?" link="/signin" />
     <form onSubmit={handleSubmit} className="px-8" >
       <LabeledInput label="Name" onChange={(e) => setSignupData({
         ...signupData,
