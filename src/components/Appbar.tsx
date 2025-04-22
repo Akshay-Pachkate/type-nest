@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 
 const Appbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<string>('');
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    setUser(localStorage.getItem('user'));
+    setUser(localStorage.getItem('user') || "xyz");
     if (token) {
       setIsLoggedIn(true);
     } else {
