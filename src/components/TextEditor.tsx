@@ -21,68 +21,14 @@ const TextEditor = () => {
     }
   }
 
-  const handleFormat = (command: string) => {
-    document.execCommand(command, false);
-  };
-
   return (
     <div className="max-w-4xl mx-auto p-4 bg-white rounded-lg shadow-sm border border-gray-200 mt-8">
         <LabeledInput label='Title' placeholder='Enter title ' type='text' onChange={(e) => setTitle(e.target.value)}/>
       {/* Toolbar */}
-      <div className="flex items-center gap-2 p-2 border-b border-gray-200 mb-4">
-        <button
-          onClick={() => handleFormat('bold')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Bold"
-        >
-          <Bold className="w-5 h-5 text-gray-700" />
-        </button>
-        <button
-          onClick={() => handleFormat('italic')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Italic"
-        >
-          <Italic className="w-5 h-5 text-gray-700" />
-        </button>
-        <button
-          onClick={() => handleFormat('insertUnorderedList')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Bullet List"
-        >
-          <List className="w-5 h-5 text-gray-700" />
-        </button>
-        <div className="h-6 w-px bg-gray-200 mx-2" />
-        <button
-          onClick={() => handleFormat('justifyLeft')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Align Left"
-        >
-          <AlignLeft className="w-5 h-5 text-gray-700" />
-        </button>
-        <button
-          onClick={() => handleFormat('justifyCenter')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Align Center"
-        >
-          <AlignCenter className="w-5 h-5 text-gray-700" />
-        </button>
-        <button
-          onClick={() => handleFormat('justifyRight')}
-          className="p-2 hover:bg-gray-100 rounded transition-colors"
-          title="Align Right"
-        >
-          <AlignRight className="w-5 h-5 text-gray-700" />
-        </button>
+      <div className="">        
+        <label htmlFor='content' className="block mb-2 text-sm font-medium text-gray-900 ">Content</label>
+        <textarea rows="10" onChange={e => setContent(e.target.value)} type="text" id="content" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='write content here...'  />
       </div>
-
-      {/* Editor Area */}
-      {/* Editor Area */}
-      <div
-        className="min-h-[200px] p-4 focus:outline-none"
-        contentEditable
-        onInput={(e) => setContent(e.currentTarget.textContent || '')}
-      />
-
 
       {/* Character Count */}
       <div className="text-sm text-gray-500 mt-2">

@@ -1,13 +1,15 @@
-import { Command } from 'lucide-react';
+import { Command, Plus } from 'lucide-react';
 import Avatar from './Avatar';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const Appbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
+    setUser(localStorage.getItem('user'));
     if (token) {
       setIsLoggedIn(true);
     } else {
@@ -22,7 +24,7 @@ const Appbar = () => {
           {/* Left side - Logo */}
           <Link to={'/'} className="flex items-center">
             <Command className="h-8 w-8 text-black" />
-            <span className="ml-2 text-xl font-bold text-black">Medium</span>
+            <span className="ml-2 text-xl font-bold text-black">TypeNest</span>
           </Link>
 
           {/* Right side - Navigation Buttons */}
@@ -31,11 +33,11 @@ const Appbar = () => {
               <div className="flex gap-2 items-center">
                 <Link
                   to={'/publish'}
-                  className="text-gray-200 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5"
+                  className="text-gray-200 bg-gray-800 flex gap-2 justify-center items-center hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm pl-4 pr-5 py-2.5"
                 >
-                  New Post
+                  <Plus /> New Post          
                 </Link>
-                <Avatar size="big" name="Some User" />
+                <Avatar size="big" name={user} />
               </div>
             ) : (
               <div className="flex gap-2">

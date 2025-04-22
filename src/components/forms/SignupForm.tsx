@@ -33,8 +33,9 @@ const SignupForm = () => {
         }
 
         localStorage.setItem('jwt', res.data.jwt);
+        localStorage.setItem('user', res.data.user.name);
 
-        navigate('/blogs');
+        navigate('/');
         
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       }catch(err: any){
